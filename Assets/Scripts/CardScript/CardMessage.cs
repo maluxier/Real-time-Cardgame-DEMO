@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class CardMessage : ScriptableObject
 {
     public int CardClass;
-    public Text CardName;
+    public string CardName;
     public Sprite CardImage;
-    public Text CardInfo;
+
+    [TextArea]
+    public string CardInfo;
 }
