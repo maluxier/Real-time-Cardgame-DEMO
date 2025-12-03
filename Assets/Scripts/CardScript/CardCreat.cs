@@ -7,26 +7,27 @@ using UnityEngine.EventSystems;
 
 public class CardCreat : MonoBehaviour, IPointerClickHandler
 {
+    [Header("UI组件数据")]
     public Text CardName;
     public Image CardImage;
     public Text CardInfo;
 
+
+    
     private int CardClass;
 
     public CardMessage Card;
 
     public CardInventery myCardInventery;
 
-    private void Start()
+    public void Init(CardMessage data)//初始化方法，由发牌器在生产卡牌时调用
     {
-        int maxCardListID = myCardInventery.cardList.Count;
-        int randomID = Random.Range(0, maxCardListID);
-        Card = myCardInventery.cardList[randomID];
+        this.Card = data;
 
-        CardName.text = Card.CardName.ToString();
-        CardImage.sprite = Card.CardImage;
-        CardInfo.text = Card.CardInfo.ToString();
-        CardClass = Card.CardClass;
+        // 刷新 UI
+        if (CardName) CardName.text = data.CardName;
+        if (CardImage) CardImage.sprite = data.CardImage;
+        if (CardInfo) CardInfo.text = data.CardInfo;
     }
 
 
