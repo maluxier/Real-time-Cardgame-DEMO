@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e901b7df8e305f54c8f5ad81f1281295, type: 3}
   m_Name: normal attack
   m_EditorClassIdentifier: 
-  CardClass: 1
+  CardClass: 0
   CardName: Normal Attack
   CardImage: {fileID: 0}
+  Damage: 0
   CardInfo: ATK:10

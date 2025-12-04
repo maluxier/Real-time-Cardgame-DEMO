@@ -25,9 +25,9 @@ public class CardCreat : MonoBehaviour, IPointerClickHandler
         this.Card = data;
 
         // Ë¢ÐÂ UI
-        if (CardName) CardName.text = data.CardName;
-        if (CardImage) CardImage.sprite = data.CardImage;
-        if (CardInfo) CardInfo.text = data.CardInfo;
+        CardName.text = data.CardName;
+        CardImage.sprite = data.CardImage;
+        CardInfo.text = data.CardInfo;
     }
 
 
