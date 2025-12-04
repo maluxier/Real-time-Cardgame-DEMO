@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu (fileName = "NewCard" , menuName = "Card")]
+[CreateAssetMenu (fileName = "NewCard" , menuName = "Data/NewCard")]
 public class CardMessage : ScriptableObject
 {
     public int CardClass;
-    public Text CardName;
+    public string CardName;
     public Sprite CardImage;
-    public Text CardInfo;
+    public int Damage;
+
+    [TextArea]
+    public string CardInfo;
 }
