@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class CardShuffler : MonoBehaviour
 {
-    public GameObject cardPrefab;
-    public Transform attackHandArea;
-    public Transform defenseHandArea;
-    public Transform buffHandArea;
-    public CardInventery Inventery;
+    public float refreshCD;//最初刷新冷却
+    public float currentCD;//当前CD
+
+    public bool isInRefresh = false;
+
+    public GameObject cardPrefab;//卡牌预制体
+    public Transform HandArea;//刷新位置
+    public CardInventery Inventery;//抽取的卡牌库
+
 
     private void Start()
     {
@@ -18,36 +22,33 @@ public class CardShuffler : MonoBehaviour
         DrawCard();
     }
 
-    public  void DrawCard()
+
+    private void Update()
+    {
+        ResetRefreshCD();
+    }
+
+
+    public void ResetRefreshCD()
+    {
+        if (HandArea.childCount < 3)
+        {
+            isInRefresh = true;
+            currentCD = refreshCD;
+            currentCD -= Time.deltaTime;
+            if (currentCD == 0f)
+            {
+                DrawCard();
+                isInRefresh = false;               
+            }
+        }
+    }
+
+    public void DrawCard()
     {
         int cardID = Random.Range(0, Inventery.cardList.Count);
         CardMessage data = Inventery.cardList[cardID];
-
-        switch (data.CardClass)
-        {
-            case 0:
-                {
-                    GameObject newCard = Instantiate(cardPrefab, attackHandArea);
-                    newCard.GetComponent<CardCreat>().Init(data);
-                    break;
-                }
-                
-
-            case 1:
-                {
-                    GameObject newCard = Instantiate(cardPrefab, defenseHandArea);
-                    newCard.GetComponent<CardCreat>().Init(data);
-                    break;
-                }
-
-
-            case 2:
-                {
-                    GameObject newCard = Instantiate(cardPrefab, buffHandArea);
-                    newCard.GetComponent<CardCreat>().Init(data);
-                    break;
-                }
-        }
-                   
-    }
+        GameObject newCard = Instantiate(cardPrefab, HandArea);
+        newCard.GetComponent<CardCreat>().Init(data);
+    }       
 }
