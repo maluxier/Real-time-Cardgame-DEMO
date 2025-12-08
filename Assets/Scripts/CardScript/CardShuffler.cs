@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CardShuffler : MonoBehaviour
 {
+    //此处的CD设置做测试使用，后面是需要接收装备数据来赋值的
     public float refreshCD;//最初刷新冷却
     public float currentCD;//当前CD
 
@@ -25,22 +26,29 @@ public class CardShuffler : MonoBehaviour
 
     private void Update()
     {
-        ResetRefreshCD();
+        if(HandArea.childCount < 3)
+        {
+            ResetRefreshCD();
+        }       
     }
 
 
     public void ResetRefreshCD()
     {
-        if (HandArea.childCount < 3)
+        Debug.Log("进入CD");
+        if (!isInRefresh)
         {
             isInRefresh = true;
             currentCD = refreshCD;
-            currentCD -= Time.deltaTime;
-            if (currentCD == 0f)
-            {
-                DrawCard();
-                isInRefresh = false;               
-            }
+        }           
+
+        currentCD -= Time.deltaTime;
+
+        if (currentCD <= 0f)
+        {
+            DrawCard();
+            isInRefresh = false;
+            currentCD = 0f;
         }
     }
 
