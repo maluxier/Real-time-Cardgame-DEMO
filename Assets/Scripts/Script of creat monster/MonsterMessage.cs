@@ -5,15 +5,17 @@ using System.Runtime.ExceptionServices;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="New monster", menuName ="Data/New monster")]
-public class MonserMessage : ScriptableObject
+public class MonsterMessage : ScriptableObject
 {
     [Header("怪物种类")]
-    public int MonserClass;
+    public int MonsterClass;
 
     [Header("怪物生命数值")]
-    public float HP;//当前血量
-    public float MaxHP;//血量上限
+    public float MonsterMaxHP;//血量上限
 
     [Header("怪物攻击数值")]
     public float MonsterAttack;
+
+    [Header("怪物图片")]
+    public SpriteRenderer MonsterImage;
 }

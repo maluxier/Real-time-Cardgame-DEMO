@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -23,15 +24,22 @@ public class BattleManager : MonoBehaviour
 
     private void Update()
     {
+        
         if(isTargeting && Input.GetMouseButtonDown(0))
         {
+            DetectMonsterClick();
             
+        }
+
+        if(isTargeting && Input.GetMouseButtonDown(1))
+        {
+            CancelSelection();
         }
     }
 
     public void SelectCard(CardCreat mySelectCard)
     {
-        if(currentSelectedCard = mySelectCard)
+        if(currentSelectedCard == mySelectCard)
         {
             CancelSelection();
             return;
@@ -54,22 +62,25 @@ public class BattleManager : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);//从摄像机发射射线检测当前点击的是不是怪
         RaycastHit hit;//检测射线击中的物体，设置为hit变量
 
-        if(Physics.Raycast(ray, out hit,monsterLayer))
+        if(Physics.Raycast(ray, out hit,100f ,monsterLayer))
         {
-            Monster target = hit.collider.GetComponent<Monster>();
+            Debug.Log(hit.collider.name);
+            MonsterCreat target = hit.collider.GetComponent<MonsterCreat>();
             if(target != null)
             {
                 AttackMonster(target);
+                Debug.Log("攻击怪物");
             }
         }
         else
         {
             //没选中怪物则重置选择状态
             CancelSelection();
+            Debug.Log("没点中怪物");
         }
     }
 
-    private void AttackMonster(Monster target)
+    private void AttackMonster(MonsterCreat target)
     {
         if(currentSelectedCard == null)
         {
@@ -82,9 +93,11 @@ public class BattleManager : MonoBehaviour
         target.TakeDamage(dmg);//参数传入Monster类
 
         //此处写销毁卡牌
-
+        Destroy(currentSelectedCard.gameObject);
 
         //此处写重置选择状态
         CancelSelection();
+
+        Debug.Log("已攻击怪物");
     }
 }
