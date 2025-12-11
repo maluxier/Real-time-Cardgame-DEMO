@@ -15,4 +15,7 @@ public class MonsterMessage : ScriptableObject
 
     [Header("怪物攻击数值")]
     public float MonsterAttack;
+
+    [Header("怪物图片")]
+    public SpriteRenderer MonsterImage;
 }

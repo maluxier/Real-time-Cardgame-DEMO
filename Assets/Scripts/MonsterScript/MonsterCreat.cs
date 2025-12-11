@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class MonsterCreat : MonoBehaviour
 
     public float monsterMaxHP;
     public float monsterCurrentHP;
+    public SpriteRenderer monsterImage;
 
     public float monsterAttack;
 
@@ -21,7 +23,7 @@ public class MonsterCreat : MonoBehaviour
         monsterMaxHP = data.MonsterMaxHP;
         monsterCurrentHP = monsterMaxHP;
         monsterAttack = data.MonsterAttack;
-
+        monsterImage = data.MonsterImage;
     }
 
 

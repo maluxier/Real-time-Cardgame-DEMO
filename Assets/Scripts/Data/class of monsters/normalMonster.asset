@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: normalMonster
   m_EditorClassIdentifier: 
   MonsterClass: 0
-  MonsterMaxHP: 0
+  MonsterMaxHP: 100
   MonsterAttack: 10
+  MonsterImage: {fileID: 0}
