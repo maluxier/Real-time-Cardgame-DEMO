@@ -31,11 +31,7 @@ public class MonsterCreat : MonoBehaviour
     {
         monsterCurrentHP -= amount;
         Debug.Log("¹ÖÎïÊÜ»÷");
-    }
-
-    public void MonsterDie()
-    {
-        if(monsterCurrentHP <= 0)
+        if (monsterCurrentHP <= 0)
         {
             Destroy(this.gameObject);
         }
