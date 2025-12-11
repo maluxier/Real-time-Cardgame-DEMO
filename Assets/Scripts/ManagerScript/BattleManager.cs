@@ -23,12 +23,13 @@ public class BattleManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        
+    { 
         if(isTargeting && Input.GetMouseButtonDown(0))
         {
-            DetectMonsterClick();
-            
+            if(currentSelectedCard.CardClass == 0)
+            {
+                DetectMonsterClick();
+            }
         }
 
         if(isTargeting && Input.GetMouseButtonDown(1))
@@ -39,12 +40,7 @@ public class BattleManager : MonoBehaviour
 
     public void SelectCard(CardCreat mySelectCard)
     {
-        if(currentSelectedCard == mySelectCard)
-        {
-            CancelSelection();
-            return;
-        }
-
+        
         currentSelectedCard = mySelectCard;
         isTargeting = true;
         Debug.Log("已选中卡牌");
@@ -80,17 +76,23 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    /*攻击逻辑*/
     private void AttackMonster(MonsterCreat target)
     {
         if(currentSelectedCard == null)
         {
             return;
         }
-
         //卡牌效果写这里
         int dmg = currentSelectedCard.Card.Damage;
 
         target.TakeDamage(dmg);//参数传入Monster类
+
+        //检测卡牌携带的buff并触发
+        foreach (var effect in currentSelectedCard.Card.BuffMessages)
+        {
+            effect.BuffEffect();
+        }
 
         //此处写销毁卡牌
         Destroy(currentSelectedCard.gameObject);

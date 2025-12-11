@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Runtime.ExceptionServices;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 [CreateAssetMenu(fileName ="New monster", menuName ="Data/New monster")]
 public class MonsterMessage : ScriptableObject
