@@ -35,6 +35,6 @@ public class CardCreat : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        BattleManager.instance.SelectCard(this);
+        CardSelectManager.instance.SelectCard(this);
     }
 }

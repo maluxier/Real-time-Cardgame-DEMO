@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public void Init()
     {
         maxPlayerHP = playerMessage.MaxPlayerHP;
-        currentPlayerDP = maxPlayerHP;
+        currentPlayerHP = maxPlayerHP;
 
         originPlayerDP = playerMessage.OriginPlayerDP;
         currentPlayerDP = originPlayerDP;

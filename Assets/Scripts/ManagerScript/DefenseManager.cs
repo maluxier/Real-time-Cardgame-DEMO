@@ -11,7 +11,7 @@ public class DefenseManager : MonoBehaviour
 
 
     private CardCreat currentSelectedCard;
-    public bool isTargeting;
+    public bool isTargeting = false;
 
     private void Awake()
     {
@@ -19,11 +19,12 @@ public class DefenseManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {       
         if (isTargeting && Input.GetMouseButtonDown(0))
         {
             if (currentSelectedCard.CardClass == 1)
             {
+                Debug.Log("检测到左键");
                 DetectPlayerClick();
             }
         }
@@ -34,12 +35,12 @@ public class DefenseManager : MonoBehaviour
         }
     }
 
-    public void SelectCard(CardCreat mySelectCard)
+    public void SelectDefenseCard(CardCreat mySelectCard)
     {
 
         currentSelectedCard = mySelectCard;
         isTargeting = true;
-        Debug.Log("已选中卡牌");
+        Debug.Log("已选中防御卡牌");
     }
 
     private void CancelSelection()//取消对当前卡牌的选择
@@ -51,9 +52,30 @@ public class DefenseManager : MonoBehaviour
 
     private void DetectPlayerClick()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);//从摄像机发射射线检测当前点击的是不是怪
-        RaycastHit hit;//检测射线击中的物体，设置为hit变量
+        Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0f, playerLayer);
+        
+        if(hit.collider != null)
+        {
+            Player target = hit.collider.GetComponent<Player>();
 
+            if (target != null)
+            {
+                Defense(target);
+                Debug.Log("防御");
+            }
+            else
+            {
+                //没选中怪物则重置选择状态
+                CancelSelection();
+                Debug.Log("没点中玩家");
+            }
+        }
+
+        /*废弃方案
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);//从摄像机发射射线检测当前点击的是不是玩家
+        RaycastHit hit;//检测射线击中的物体，设置为hit变量
+        
         if (Physics.Raycast(ray, out hit, 100f, playerLayer))
         {
             Debug.Log(hit.collider.name);
@@ -69,7 +91,7 @@ public class DefenseManager : MonoBehaviour
             //没选中怪物则重置选择状态
             CancelSelection();
             Debug.Log("没点中玩家");
-        }
+        }*/
     }
 
     public void Defense(Player target)
