@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e901b7df8e305f54c8f5ad81f1281295, type: 3}
-  m_Name: enhanced attack
+  m_Name: normal defense
   m_EditorClassIdentifier: 
-  CardClass: 0
-  CardName: Enhanced Attack
+  CardClass: 1
+  CardName: Normal Defense
   CardImage: {fileID: 0}
-  Damage: 20
-  Denfense: 0
-  CardInfo: 'ATK : 20'
+  Damage: 0
+  Denfense: 10
+  CardInfo: DP+10
   BuffMessages: []

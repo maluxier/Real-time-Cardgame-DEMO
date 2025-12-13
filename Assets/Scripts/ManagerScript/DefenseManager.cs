@@ -57,10 +57,10 @@ public class DefenseManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f, playerLayer))
         {
             Debug.Log(hit.collider.name);
-            MonsterCreat target = hit.collider.GetComponent<MonsterCreat>();
+            Player target = hit.collider.GetComponent<Player>();
             if (target != null)
             {
-                Defense();
+                Defense(target);
                 Debug.Log("防御");
             }
         }
@@ -72,12 +72,26 @@ public class DefenseManager : MonoBehaviour
         }
     }
 
-    public void Defense()
+    public void Defense(Player target)
     {
-        if (currentSelectedCard != null)
+        if (currentSelectedCard == null)
         {
             return;
         }
         
+        float dp = currentSelectedCard.Card.Denfense;
+
+        //参数传入Player类
+        target.PlayerTakeDefense(dp);
+
+        //检测卡牌携带的buff并触发
+        foreach (var effect in currentSelectedCard.Card.BuffMessages)
+        {
+            effect.BuffEffect();
+        }
+
+        Destroy(currentSelectedCard.gameObject);
+
+        CancelSelection();
     }
 }

@@ -10,7 +10,9 @@ public class CardMessage : ScriptableObject
     public string CardName;
     public Sprite CardImage;
 
-    public int Damage;
+    public float Damage;
+
+    public float Denfense;
 
     [TextArea]
     public string CardInfo;

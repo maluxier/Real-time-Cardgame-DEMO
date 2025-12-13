@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e901b7df8e305f54c8f5ad81f1281295, type: 3}
-  m_Name: enhanced attack
+  m_Script: {fileID: 11500000, guid: ba5b5ccd71e8af145805655b03c6215f, type: 3}
+  m_Name: Player
   m_EditorClassIdentifier: 
-  CardClass: 0
-  CardName: Enhanced Attack
-  CardImage: {fileID: 0}
-  Damage: 20
-  Denfense: 0
-  CardInfo: 'ATK : 20'
-  BuffMessages: []
+  MaxPlayerHP: 100
+  CurrentPlayerHP: 0
+  OriginPlayerDP: 0
+  CurrentPlayerDP: 0
+  PlayerSprite: {fileID: 0}
+  PlayerBuff: []

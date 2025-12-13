@@ -27,7 +27,7 @@ public class MonsterCreat : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         monsterCurrentHP -= amount;
         Debug.Log("¹ÖÎïÊÜ»÷");

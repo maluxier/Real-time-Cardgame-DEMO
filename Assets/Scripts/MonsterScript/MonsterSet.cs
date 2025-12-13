@@ -24,6 +24,7 @@ public class MonsterSet : MonoBehaviour
             {
                 GameObject newMonster = Instantiate(monsterPrefab, setArea.GetChild(i));
                 newMonster.GetComponent<MonsterCreat>().Init(data);
+                
                 Debug.Log("怪物已生成");
             }
             else
