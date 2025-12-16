@@ -15,7 +15,8 @@ MonoBehaviour:
   CardClass: 0
   CardName: Normal Attack
   CardImage: {fileID: 0}
-  Damage: 100
+  Damage: 50
+  Denfense: 0
   CardInfo: ATK:10
   BuffMessages:
-  - {fileID: 11400000, guid: 4a244fe6877ef744c9f6f58e36fc72c7, type: 2}
+  - {fileID: 11400000, guid: 5918fee28fbb82547a7e21115348dd36, type: 2}

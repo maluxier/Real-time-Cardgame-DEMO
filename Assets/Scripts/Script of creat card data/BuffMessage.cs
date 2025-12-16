@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class BuffMessage : ScriptableObject
 {
-    public abstract void BuffEffect();
+    public abstract void BuffEffect(GameObject buffTarget);
 }

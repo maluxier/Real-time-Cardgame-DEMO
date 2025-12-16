@@ -109,7 +109,7 @@ public class DefenseManager : MonoBehaviour
         //检测卡牌携带的buff并触发
         foreach (var effect in currentSelectedCard.Card.BuffMessages)
         {
-            effect.BuffEffect();
+            effect.BuffEffect(target.gameObject);
         }
 
         Destroy(currentSelectedCard.gameObject);
