@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e00a0ba25ff6247b5464f14fc4fb12, type: 3}
   m_Name: BuffCardTest
   m_EditorClassIdentifier: 
+  isBuffGo: 0
+  buffCD: 3
+  currentBuffCD: 0

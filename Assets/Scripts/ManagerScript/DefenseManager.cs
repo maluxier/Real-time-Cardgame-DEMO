@@ -71,27 +71,6 @@ public class DefenseManager : MonoBehaviour
                 Debug.Log("没点中玩家");
             }
         }
-
-        /*废弃方案
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);//从摄像机发射射线检测当前点击的是不是玩家
-        RaycastHit hit;//检测射线击中的物体，设置为hit变量
-        
-        if (Physics.Raycast(ray, out hit, 100f, playerLayer))
-        {
-            Debug.Log(hit.collider.name);
-            Player target = hit.collider.GetComponent<Player>();
-            if (target != null)
-            {
-                Defense(target);
-                Debug.Log("防御");
-            }
-        }
-        else
-        {
-            //没选中怪物则重置选择状态
-            CancelSelection();
-            Debug.Log("没点中玩家");
-        }*/
     }
 
     public void Defense(Player target)
@@ -106,10 +85,12 @@ public class DefenseManager : MonoBehaviour
         //参数传入Player类
         target.PlayerTakeDefense(dp);
 
-        //检测卡牌携带的buff并触发
+        //检测卡牌携带的buff并激活它，然后把它塞进玩家的buff口袋里
         foreach (var effect in currentSelectedCard.Card.BuffMessages)
         {
-            effect.BuffEffect(target.gameObject);
+            BuffMessage newBuff = Instantiate(effect);
+            newBuff.Init();
+            target.playerBuff.Add(newBuff);
         }
 
         Destroy(currentSelectedCard.gameObject);

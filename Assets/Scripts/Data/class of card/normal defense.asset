@@ -18,4 +18,5 @@ MonoBehaviour:
   Damage: 0
   Denfense: 10
   CardInfo: DP+10
-  BuffMessages: []
+  BuffMessages:
+  - {fileID: 11400000, guid: 4a244fe6877ef744c9f6f58e36fc72c7, type: 2}

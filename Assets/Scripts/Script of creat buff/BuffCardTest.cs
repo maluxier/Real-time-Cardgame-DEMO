@@ -7,7 +7,6 @@ public class BuffCardTest : BuffMessage
 {
     public override void BuffEffect(GameObject buffTarget)
     {
-        buffTarget.GetComponent<MonsterCreat>().monsterCurrentHP -= 4;
-        Debug.Log("buff生效");
+        Debug.Log("buff生效");       
     }
 }

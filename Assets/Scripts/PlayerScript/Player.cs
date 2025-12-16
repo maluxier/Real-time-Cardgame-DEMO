@@ -16,6 +16,23 @@ public class Player : MonoBehaviour
     
     public PlayerMessage playerMessage;
 
+    public List<BuffMessage> playerBuff;
+
+    private void Update()
+    {
+        for (int i = playerBuff.Count-1; i >= 0; i--)
+        {
+            BuffMessage buff = playerBuff[i];
+
+            buff.BuffEffect(this.gameObject);
+
+            if (buff.BuffDel())
+            {
+                playerBuff.RemoveAt(i);
+            }
+        }
+    }
+
 
     /*数据初始化*/
     public void Init()
@@ -28,13 +45,7 @@ public class Player : MonoBehaviour
 
         playerSprite = playerMessage.PlayerSprite;
 
-        /*this.playerMessage = data;
-
-        maxPlayerHP = data.MaxPlayerHP;
-        currentPlayerHP = maxPlayerHP;
-
-        originPlayerDP = data.OriginPlayerDP;
-        currentPlayerDP = originPlayerDP;*/
+        playerBuff = playerMessage.PlayerBuff; 
     }
 
     public void PlayerTakeDamage(float Pdmg)
@@ -53,6 +64,14 @@ public class Player : MonoBehaviour
     public void PlayerTakeDefense(float Pdp)
     {
         currentPlayerDP += Pdp;
+    }
+
+    public void DelMyBuff()
+    {
+        foreach (var item in playerBuff)
+        {
+
+        }
     }
 
     /*此处我想写进入下一关前的数据回传*/
