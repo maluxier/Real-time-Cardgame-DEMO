@@ -110,7 +110,9 @@ public class BattleManager : MonoBehaviour
         //检测卡牌携带的buff并触发
         foreach (var effect in currentSelectedCard.Card.BuffMessages)
         {
-            effect.BuffEffect(target.gameObject);
+            BuffMessage newBuff = Instantiate(effect);
+            newBuff.Init();
+            target.monsterBuff.Add(newBuff);
         }
 
         //此处写销毁卡牌

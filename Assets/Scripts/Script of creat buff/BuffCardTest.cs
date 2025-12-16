@@ -5,8 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BuffCardTest", menuName = "buff/BuffCardTest")]
 public class BuffCardTest : BuffMessage
 {
+    public bool isATK;
     public override void BuffEffect(GameObject buffTarget)
     {
-        Debug.Log("buff生效");       
+        Debug.Log("buff生效");
+        MonsterCreat monster = buffTarget.GetComponent<MonsterCreat>();
     }
 }

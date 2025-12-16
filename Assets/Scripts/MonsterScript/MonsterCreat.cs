@@ -15,6 +15,22 @@ public class MonsterCreat : MonoBehaviour
 
     public float monsterAttack;
 
+    public List<BuffMessage> monsterBuff;
+
+    private void Update()
+    {
+        for (int i = monsterBuff.Count - 1; i >= 0; i--)
+        {
+            BuffMessage buff = monsterBuff[i];
+            buff.BuffEffect(this.gameObject);
+
+            if (buff.BuffDel())
+            {
+                monsterBuff.RemoveAt(i);
+            }
+        }
+    }
+
     public void Init(MonsterMessage data)
     {
         this.monster = data;
