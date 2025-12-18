@@ -17,8 +17,32 @@ public class MonsterCreat : MonoBehaviour
 
     public List<BuffMessage> monsterBuff;
 
+    public List<MonsterSkillMessage> attackSkill;//攻击技能
+    public List<MonsterSkillMessage> defenseSkill;//保守技能
+
+    private void Awake()
+    {
+        //将怪物拥有的技能分类
+        for (int i = 0; i <= monster.MonsterSkill.Count; i++)
+        {
+            switch (monster.MonsterSkill[i].actionType)
+            {
+                case MonsterActionType.Attack:
+                    attackSkill.Add(monster.MonsterSkill[i]);
+                    break;
+                case MonsterActionType.Defense:
+                    defenseSkill.Add(monster.MonsterSkill[i]);
+                    break;
+            }
+        }
+    }
+
     private void Update()
     {
+        if(monsterBuff == null)
+        {
+            return;
+        }
         for (int i = monsterBuff.Count - 1; i >= 0; i--)
         {
             BuffMessage buff = monsterBuff[i];

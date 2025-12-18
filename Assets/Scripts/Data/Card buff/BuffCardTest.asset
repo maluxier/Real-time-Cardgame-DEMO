@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: BuffCardTest
   m_EditorClassIdentifier: 
   isBuffGo: 0
-  buffCD: 3
+  buffCD: 10
   currentBuffCD: 0
+  damageTick: 5
+  intervalTime: 2
+  tickTime: 0

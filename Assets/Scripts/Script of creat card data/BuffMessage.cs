@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//buff类型
+public enum BuffType
+{
+    Neutral,//中性
+    Radical,//激进
+    Conservativeness//保守
+}
 public abstract class BuffMessage : ScriptableObject
 {
     public bool isBuffGo;
 
     public float buffCD;
     public float currentBuffCD;
+
+    public BuffType type;
 
 
     //进入buff列表时被调用，初始化buff

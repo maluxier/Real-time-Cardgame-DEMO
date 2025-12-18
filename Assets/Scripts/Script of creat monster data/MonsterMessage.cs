@@ -20,4 +20,7 @@ public class MonsterMessage : ScriptableObject
 
     [Header("怪物图片")]
     public SpriteRenderer MonsterImage;
+
+    [Header("怪物技能")]
+    public List<MonsterSkillMessage> MonsterSkill;
 }
