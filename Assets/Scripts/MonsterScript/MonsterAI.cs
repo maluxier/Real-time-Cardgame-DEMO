@@ -16,6 +16,8 @@ public class MonsterAI : MonoBehaviour
         monsterData = GetComponent<MonsterCreat>();
     }
 
+
+    //加权随机决策算法
     public MonsterSkillMessage DecideAction()
     {
         //初始化权重
@@ -66,6 +68,7 @@ public class MonsterAI : MonoBehaviour
         return GetMonsterActionType(selectType);
     }
 
+    //接收随机到的技能类型来调用技能
     private MonsterSkillMessage GetMonsterActionType(MonsterActionType monsterActionType)
     {
         List<MonsterSkillMessage> targetList = null;//临时列表，储存接下来要随机抽取的技能类型

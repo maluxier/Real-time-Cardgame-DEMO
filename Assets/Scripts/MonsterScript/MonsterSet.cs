@@ -14,6 +14,7 @@ public class MonsterSet : MonoBehaviour
         SetMonster();
     }
 
+    //在场景中生成怪物
     public void SetMonster()
     {
         int monsterID = Random.Range(0, myInventery.monstersList.Count);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class Player : MonoBehaviour
     public PlayerMessage playerMessage;
 
     public List<BuffMessage> playerBuff;
+
+
+    public Image hpFill;
 
     private void Update()
     {
@@ -45,12 +49,15 @@ public class Player : MonoBehaviour
 
         playerSprite = playerMessage.PlayerSprite;
 
-        playerBuff = playerMessage.PlayerBuff; 
+        playerBuff = playerMessage.PlayerBuff;
+
+        HPVisiable();
     }
 
     public void PlayerTakeDamage(float Pdmg)
     {
         currentPlayerHP = currentPlayerHP - (Pdmg - currentPlayerDP);
+        HPVisiable();
         Debug.Log("玩家受击");
         if (currentPlayerHP <= 0)
         {
@@ -72,6 +79,11 @@ public class Player : MonoBehaviour
         {
 
         }
+    }
+
+    public void HPVisiable()
+    {
+        hpFill.fillAmount = currentPlayerHP/maxPlayerHP;
     }
 
     /*此处我想写进入下一关前的数据回传*/

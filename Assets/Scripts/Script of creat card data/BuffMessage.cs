@@ -43,5 +43,7 @@ public abstract class BuffMessage : ScriptableObject
 
         return false;
     }
+
+    //此处为buff的机制编写处
     public abstract void BuffEffect(GameObject buffTarget);
 }
