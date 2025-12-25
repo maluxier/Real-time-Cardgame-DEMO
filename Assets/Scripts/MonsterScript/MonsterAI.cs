@@ -16,6 +16,24 @@ public class MonsterAI : MonoBehaviour
         monsterData = GetComponent<MonsterCreat>();
     }
 
+    private void Start()
+    {
+        
+    }
+    private void Update()
+    {
+        if (monsterData.currentMonsterActionCD != 0)
+        {
+            monsterData.currentMonsterActionCD -= Time.deltaTime;
+            Debug.Log("怪物正在CD");
+        }
+        
+        if(monsterData.currentMonsterActionCD <= 0)
+        {
+            ActionRun();
+        }
+    }
+
 
     //加权随机决策算法
     public MonsterSkillMessage DecideAction()
@@ -91,5 +109,14 @@ public class MonsterAI : MonoBehaviour
         int randomSkill = Random.Range(0, targetList.Count);
 
         return targetList[randomSkill];
+    }
+
+    public void ActionRun()
+    {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log("怪物触发技能");
+        MonsterSkillMessage currentSkill = DecideAction();
+        MonsterActionManager.instance.SkillRun(currentSkill, this.gameObject, playerObj);      
+        monsterData.currentMonsterActionCD = monsterData.originMonsterActionCD;
     }
 }

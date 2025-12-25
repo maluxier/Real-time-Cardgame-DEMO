@@ -13,6 +13,9 @@ public class MonsterCreat : MonoBehaviour
     public float monsterCurrentHP;
     public SpriteRenderer monsterImage;
 
+    public float originMonsterActionCD;
+    public float currentMonsterActionCD;
+
     public float monsterAttack;
 
     public List<BuffMessage> monsterBuff;
@@ -55,8 +58,9 @@ public class MonsterCreat : MonoBehaviour
         monsterClass = data.MonsterClass;
         monsterMaxHP = data.MonsterMaxHP;
         monsterCurrentHP = monsterMaxHP;
-        monsterAttack = data.MonsterAttack;
         monsterImage = data.MonsterImage;
+        originMonsterActionCD = data.MosterActionCD;
+        currentMonsterActionCD = originMonsterActionCD;
 
         hpVisiable();
 

@@ -8,7 +8,7 @@ public enum MonsterActionType
     Defense
 }
 
-[CreateAssetMenu(fileName ="New MonsterSkill",menuName ="MonsterSkill/New MonsterSkill")]
+
 public abstract class MonsterSkillMessage : ScriptableObject
 {
     public string skillName;

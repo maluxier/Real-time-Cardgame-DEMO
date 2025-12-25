@@ -73,25 +73,6 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("没点中怪物");
             }
         }
-
-
-        /*废弃方案
-        if (Physics.Raycast(ray, out hit,100f ,monsterLayer))
-        {
-            Debug.Log(hit.collider.name);
-            MonsterCreat target = hit.collider.GetComponent<MonsterCreat>();
-            if(target != null)
-            {
-                AttackMonster(target);
-                Debug.Log("攻击怪物");
-            }
-        }
-        else
-        {
-            //没选中怪物则重置选择状态
-            CancelSelection();
-            Debug.Log("没点中怪物");
-        }*/
     }
 
     /*攻击逻辑*/

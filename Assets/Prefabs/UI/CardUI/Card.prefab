@@ -149,7 +149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -841591137, guid: 240c2329872d6db4b9fc043d81dc0c8f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -174,6 +174,7 @@ MonoBehaviour:
   CardName: {fileID: 5316745499757848270}
   CardImage: {fileID: 2551066529696716115}
   CardInfo: {fileID: 6227036195912146233}
+  CardClass: 0
   Card: {fileID: 0}
   myCardInventery: {fileID: 11400000, guid: f3fa91973a7dff44fb681dad93e32a82, type: 2}
 --- !u!61 &6596969222134039321
@@ -327,8 +328,8 @@ RectTransform:
   m_GameObject: {fileID: 7222424904557761479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6094180428549033318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
