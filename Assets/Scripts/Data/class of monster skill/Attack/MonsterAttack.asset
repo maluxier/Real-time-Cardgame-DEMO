@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: NormalAttack
   actionType: 0
-  damage: 20
+  damage: 10

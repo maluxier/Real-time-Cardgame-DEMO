@@ -47,7 +47,6 @@ public class MonsterCreat : MonoBehaviour
 
     public void Init(MonsterMessage data)
     {
-
         //初始化本怪物技能列表
         attackSkill = new List<MonsterSkillMessage>();
         defenseSkill = new List<MonsterSkillMessage>();

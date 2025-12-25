@@ -56,14 +56,26 @@ public class Player : MonoBehaviour
 
     public void PlayerTakeDamage(float Pdmg)
     {
-        currentPlayerHP = currentPlayerHP - (Pdmg - currentPlayerDP);
+        if(currentPlayerDP >= Pdmg)
+        {
+            currentPlayerDP -= Pdmg;
+            Pdmg = 0;
+        }
+        else
+        {
+            Pdmg -= currentPlayerDP;
+            currentPlayerDP = 0;
+        }
+
+        currentPlayerHP -= Pdmg;
         HPVisiable();
         Debug.Log("Íæ¼ÒÊÜ»÷");
         if (currentPlayerHP <= 0)
         {
             isPlayerDead = true;
             PlayerDataBack();
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
+            this.enabled = false;
         }
 
     }
