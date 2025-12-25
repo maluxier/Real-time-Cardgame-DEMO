@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fec9a41e0c41d248a1ca616bb447b07, type: 3}
-  m_Name: normalMonster
+  m_Script: {fileID: 11500000, guid: 27e00a0ba25ff6247b5464f14fc4fb12, type: 3}
+  m_Name: BuffCardTest
   m_EditorClassIdentifier: 
-  MonsterClass: 0
-  MonsterMaxHP: 100
-  MosterActionCD: 5
-  MonsterImage: {fileID: 0}
-  MonsterSkill:
-  - {fileID: 11400000, guid: 931cb1507a28ae147a95889e339ede41, type: 2}
+  isBuffGo: 0
+  buffCD: 10
+  currentBuffCD: 0
+  damageTick: 5
+  intervalTime: 2
+  tickTime: 0

@@ -14,7 +14,7 @@ public class CardCreat : MonoBehaviour, IPointerClickHandler
 
 
     
-    private int CardClass;
+    public int CardClass;
 
     public CardMessage Card;
 
@@ -28,11 +28,13 @@ public class CardCreat : MonoBehaviour, IPointerClickHandler
         CardName.text = data.CardName;
         CardImage.sprite = data.CardImage;
         CardInfo.text = data.CardInfo;
+
+        CardClass = data.CardClass;
     }
 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        BattleManager.instance.SelectCard(this);
+        CardSelectManager.instance.SelectCard(this);
     }
 }

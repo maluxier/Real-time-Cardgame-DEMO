@@ -23,12 +23,13 @@ public class BattleManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        
+    { 
         if(isTargeting && Input.GetMouseButtonDown(0))
         {
-            DetectMonsterClick();
-            
+            if(currentSelectedCard.CardClass == 0)
+            {
+                DetectMonsterClick();
+            }
         }
 
         if(isTargeting && Input.GetMouseButtonDown(1))
@@ -39,15 +40,10 @@ public class BattleManager : MonoBehaviour
 
     public void SelectCard(CardCreat mySelectCard)
     {
-        if(currentSelectedCard == mySelectCard)
-        {
-            CancelSelection();
-            return;
-        }
-
+        
         currentSelectedCard = mySelectCard;
         isTargeting = true;
-        Debug.Log("已选中卡牌");
+        Debug.Log("已选中攻击卡牌");
     }
 
     private void CancelSelection()//取消对当前卡牌的选择
@@ -59,38 +55,46 @@ public class BattleManager : MonoBehaviour
 
     private void DetectMonsterClick()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);//从摄像机发射射线检测当前点击的是不是怪
-        RaycastHit hit;//检测射线击中的物体，设置为hit变量
+        Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0f, monsterLayer);
 
-        if(Physics.Raycast(ray, out hit,100f ,monsterLayer))
+        if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
             MonsterCreat target = hit.collider.GetComponent<MonsterCreat>();
-            if(target != null)
+            if (target != null)
             {
                 AttackMonster(target);
                 Debug.Log("攻击怪物");
             }
-        }
-        else
-        {
-            //没选中怪物则重置选择状态
-            CancelSelection();
-            Debug.Log("没点中怪物");
+            else
+            {
+                //没选中怪物则重置选择状态
+                CancelSelection();
+                Debug.Log("没点中怪物");
+            }
         }
     }
 
+    /*攻击逻辑*/
     private void AttackMonster(MonsterCreat target)
     {
         if(currentSelectedCard == null)
         {
             return;
         }
-
         //卡牌效果写这里
-        int dmg = currentSelectedCard.Card.Damage;
+        float dmg = currentSelectedCard.Card.Damage;
 
-        target.TakeDamage(dmg);//参数传入Monster类
+        //参数传入MonsterCreat类
+        target.TakeDamage(dmg);
+
+        //检测卡牌携带的buff并触发
+        foreach (var effect in currentSelectedCard.Card.BuffMessages)
+        {
+            BuffMessage newBuff = Instantiate(effect);
+            newBuff.Init();
+            target.monsterBuff.Add(newBuff);
+        }
 
         //此处写销毁卡牌
         Destroy(currentSelectedCard.gameObject);

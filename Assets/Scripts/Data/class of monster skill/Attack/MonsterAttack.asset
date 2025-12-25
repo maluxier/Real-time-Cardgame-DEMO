@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fec9a41e0c41d248a1ca616bb447b07, type: 3}
-  m_Name: normalMonster
+  m_Script: {fileID: 11500000, guid: 0d0a272f894fa1c4890fc01ed36910c6, type: 3}
+  m_Name: MonsterAttack
   m_EditorClassIdentifier: 
-  MonsterClass: 0
-  MonsterMaxHP: 100
-  MosterActionCD: 5
-  MonsterImage: {fileID: 0}
-  MonsterSkill:
-  - {fileID: 11400000, guid: 931cb1507a28ae147a95889e339ede41, type: 2}
+  skillName: NormalAttack
+  actionType: 0
+  damage: 10

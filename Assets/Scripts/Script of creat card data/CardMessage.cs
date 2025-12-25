@@ -9,8 +9,13 @@ public class CardMessage : ScriptableObject
     public int CardClass;
     public string CardName;
     public Sprite CardImage;
-    public int Damage;
+
+    public float Damage;
+
+    public float Denfense;
 
     [TextArea]
     public string CardInfo;
+
+    public List<BuffMessage> BuffMessages;
 }
