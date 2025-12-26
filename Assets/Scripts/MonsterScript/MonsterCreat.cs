@@ -16,7 +16,7 @@ public class MonsterCreat : MonoBehaviour
     public float originMonsterActionCD;
     public float currentMonsterActionCD;
 
-    public float monsterAttack;
+
 
     public List<BuffMessage> monsterBuff;
 

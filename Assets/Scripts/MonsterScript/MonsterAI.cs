@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class MonsterAI : MonoBehaviour
@@ -10,6 +11,17 @@ public class MonsterAI : MonoBehaviour
     public float baseDefenseWeight;
 
     private MonsterCreat monsterData;
+    public MonsterSkillMessage currentSkill;
+    public MonsterActionType currentActionType;
+
+    public Image originACTImg;
+    public Image actionImg;
+    public bool isActionPrediction;//预测行动
+    public Sprite attackImage;
+    public Sprite defenseImage;
+
+    public MonsterActionInventery actionList;
+
 
     private void Awake()
     {
@@ -18,14 +30,34 @@ public class MonsterAI : MonoBehaviour
 
     private void Start()
     {
-        
+        isActionPrediction = true;
+        actionImg = originACTImg;
     }
+
     private void Update()
     {
-        if (monsterData.currentMonsterActionCD != 0)
+        if (monsterData.currentMonsterActionCD > 0)
         {
             monsterData.currentMonsterActionCD -= Time.deltaTime;
+            if (monsterData.currentMonsterActionCD < 0)
+            {
+                monsterData.currentMonsterActionCD = 0;
+            }
             Debug.Log("怪物正在CD");
+        }
+
+        if (monsterData.currentMonsterActionCD <= 3 && monsterData.currentMonsterActionCD > 0)
+        {
+            if (isActionPrediction)
+            {
+                PredictionAction();
+            }
+
+            
+        }
+        else
+        {
+            
         }
         
         if(monsterData.currentMonsterActionCD <= 0)
@@ -34,6 +66,11 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
+    public void PredictionAction()
+    {
+        currentSkill = DecideAction();
+        isActionPrediction = false;
+    }
 
     //加权随机决策算法
     public MonsterSkillMessage DecideAction()
@@ -77,11 +114,14 @@ public class MonsterAI : MonoBehaviour
         if (randomValue <= currentAttackWeight)
         {
             selectType = MonsterActionType.Attack;
+            actionImg.sprite = actionList.ActionList[1].ActionImage;
         }
         else
         {
             selectType = MonsterActionType.Defense;
+            actionImg.sprite = actionList.ActionList[2].ActionImage;
         }
+
 
         return GetMonsterActionType(selectType);
     }
@@ -113,10 +153,18 @@ public class MonsterAI : MonoBehaviour
 
     public void ActionRun()
     {
+        if(currentSkill == null)
+        {
+            Debug.Log("没技能");
+        }
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         Debug.Log("怪物触发技能");
-        MonsterSkillMessage currentSkill = DecideAction();
-        MonsterActionManager.instance.SkillRun(currentSkill, this.gameObject, playerObj);      
+        MonsterActionManager.instance.SkillRun(currentSkill, this.gameObject, playerObj);
         monsterData.currentMonsterActionCD = monsterData.originMonsterActionCD;
+
+
+        isActionPrediction = true;
+        actionImg.sprite = actionList.ActionList[0].ActionImage;
+
     }
 }

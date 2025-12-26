@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab76bd131db78146bc78bca64bf315c, type: 3}
+  m_Name: MonsterActInventery
+  m_EditorClassIdentifier: 
+  ActionList:
+  - {fileID: 11400000, guid: 1131563d66963344b9da1be90ba44ace, type: 2}
+  - {fileID: 11400000, guid: 355ca1dd180e00d48962946e68afcd0c, type: 2}
+  - {fileID: 11400000, guid: cebe5e8b4979ecf4687192c6927cb5a5, type: 2}
