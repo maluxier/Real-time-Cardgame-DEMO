@@ -58,5 +58,5 @@ public class CardShuffler : MonoBehaviour
         CardMessage data = Inventery.cardList[cardID];
         GameObject newCard = Instantiate(cardPrefab, HandArea);
         newCard.GetComponent<CardCreat>().Init(data);        
-    }       
+    }
 }
