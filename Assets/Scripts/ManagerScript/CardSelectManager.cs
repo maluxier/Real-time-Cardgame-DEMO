@@ -22,6 +22,10 @@ public class CardSelectManager : MonoBehaviour
             case 1:
                 DefenseManager.instance.SelectDefenseCard(card);
                 break;
+                //Temp Script//////////////
+            case 2:
+                DefenseManager.instance.SelectDefenseCard(card);
+                break;
         }
     }
 }

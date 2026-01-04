@@ -22,7 +22,7 @@ public class DefenseManager : MonoBehaviour
     {       
         if (isTargeting && Input.GetMouseButtonDown(0))
         {
-            if (currentSelectedCard.CardClass == 1)
+            if (currentSelectedCard.CardClass == 1 || currentSelectedCard.CardClass == 2)
             {
                 Debug.Log("¼ì²âµ½×ó¼ü");
                 DetectPlayerClick();

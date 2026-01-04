@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        HPVisiable();
         for (int i = playerBuff.Count-1; i >= 0; i--)
         {
             BuffMessage buff = playerBuff[i];
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
         }
 
         currentPlayerHP -= Pdmg;
-        HPVisiable();
+        
         Debug.Log("Íæ¼ÒÊÜ»÷");
         if (currentPlayerHP <= 0)
         {
