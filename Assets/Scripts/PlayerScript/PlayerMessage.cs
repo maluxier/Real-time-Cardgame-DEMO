@@ -10,7 +10,7 @@ public class PlayerMessage : ScriptableObject
     public float OriginPlayerDP;
     public float CurrentPlayerDP;
 
-    public SpriteRenderer PlayerSprite;
+    public Sprite PlayerSprite;
 
     public List<BuffMessage> PlayerBuff;
 }

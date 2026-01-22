@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardClass: 0
   CardName: Normal Attack
-  CardImage: {fileID: 0}
-  Damage: 50
+  CardImage: {fileID: 21300000, guid: d5f9df55ad54267498df3d2c8d42761f, type: 3}
+  Damage: 0
   Denfense: 0
-  CardInfo: ATK:10
-  BuffMessages: []
+  CardInfo: ATK:20
+  BuffMessages:
+  - {fileID: 11400000, guid: 6d8aa667ac0022f42a214cebd80ca151, type: 2}

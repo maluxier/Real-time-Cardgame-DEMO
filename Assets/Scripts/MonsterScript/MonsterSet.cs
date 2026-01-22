@@ -6,6 +6,7 @@ public class MonsterSet : MonoBehaviour
 {
     public GameObject monsterPrefab;
     public Transform setArea;
+    //public Transform[] setArea;
     public MonsterInventery myInventery;
     
     // Start is called before the first frame update
@@ -17,8 +18,24 @@ public class MonsterSet : MonoBehaviour
     //在场景中生成怪物
     public void SetMonster()
     {
+        
+        foreach (Transform item in setArea)
+        {
+            if (item.childCount == 0)
+            {
+                int monsterID = Random.Range(0, myInventery.monstersList.Count);
+                MonsterMessage data = myInventery.monstersList[monsterID];
+
+                GameObject newMonster = Instantiate(monsterPrefab, item);
+                newMonster.GetComponent<MonsterCreat>().Init(data);
+            }
+        }
+
+        /*
         int monsterID = Random.Range(0, myInventery.monstersList.Count);
         MonsterMessage data = myInventery.monstersList[monsterID];
+
+        
         for(int i=0;i < setArea.childCount; i++)
         {
             if(setArea.GetChild(i).childCount == 0)
@@ -32,6 +49,6 @@ public class MonsterSet : MonoBehaviour
             {
                 return;
             }
-        }
+        }*/
     }
 }

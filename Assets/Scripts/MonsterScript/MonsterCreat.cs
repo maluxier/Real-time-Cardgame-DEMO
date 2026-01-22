@@ -36,7 +36,7 @@ public class MonsterCreat : MonoBehaviour
         for (int i = monsterBuff.Count - 1; i >= 0; i--)
         {
             BuffMessage buff = monsterBuff[i];
-            buff.BuffEffect(this.gameObject);
+            buff.ExrcuteType(this.gameObject);
 
             if (buff.BuffDel())
             {
@@ -57,7 +57,7 @@ public class MonsterCreat : MonoBehaviour
         monsterClass = data.MonsterClass;
         monsterMaxHP = data.MonsterMaxHP;
         monsterCurrentHP = monsterMaxHP;
-        monsterImage = data.MonsterImage;
+        monsterImage.sprite = data.MonsterImage;
         originMonsterActionCD = data.MosterActionCD;
         currentMonsterActionCD = originMonsterActionCD;
 

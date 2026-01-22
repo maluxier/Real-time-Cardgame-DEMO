@@ -48,9 +48,10 @@ public class Player : MonoBehaviour
         originPlayerDP = playerMessage.OriginPlayerDP;
         currentPlayerDP = originPlayerDP;
 
-        playerSprite = playerMessage.PlayerSprite;
+        playerSprite.sprite = playerMessage.PlayerSprite;
 
-        playerBuff = playerMessage.PlayerBuff;
+        //playerBuff = playerMessage.PlayerBuff;
+        playerBuff = new List<BuffMessage>(playerMessage.PlayerBuff);
 
         HPVisiable();
     }
@@ -75,8 +76,9 @@ public class Player : MonoBehaviour
         {
             isPlayerDead = true;
             PlayerDataBack();
-            gameObject.SetActive(false);
-            this.enabled = false;
+            //gameObject.SetActive(false);
+            //this.enabled = false;
+            Destroy(this.gameObject, 1.0f);
         }
 
     }

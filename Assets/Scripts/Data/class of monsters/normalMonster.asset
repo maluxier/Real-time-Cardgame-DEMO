@@ -15,6 +15,6 @@ MonoBehaviour:
   MonsterClass: 0
   MonsterMaxHP: 100
   MosterActionCD: 5
-  MonsterImage: {fileID: 0}
+  MonsterImage: {fileID: 21300000, guid: e5ebc4409f580bd40a7dac24b559c81a, type: 3}
   MonsterSkill:
   - {fileID: 11400000, guid: 931cb1507a28ae147a95889e339ede41, type: 2}

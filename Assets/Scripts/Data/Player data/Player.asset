@@ -16,5 +16,5 @@ MonoBehaviour:
   CurrentPlayerHP: 0
   OriginPlayerDP: 0
   CurrentPlayerDP: 0
-  PlayerSprite: {fileID: 0}
+  PlayerSprite: {fileID: 21300000, guid: c08c1aeea4bcafd448fac8883c4130f4, type: 3}
   PlayerBuff: []

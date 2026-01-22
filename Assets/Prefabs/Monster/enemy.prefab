@@ -104,7 +104,7 @@ MonoBehaviour:
   monsterClass: 0
   monsterMaxHP: 0
   monsterCurrentHP: 0
-  monsterImage: {fileID: 0}
+  monsterImage: {fileID: 3312561208779817241}
   originMonsterActionCD: 0
   currentMonsterActionCD: 0
   monsterBuff: []
@@ -165,7 +165,7 @@ MonoBehaviour:
   originACTImg: {fileID: 8514351159647944777}
   actionImg: {fileID: 8514351159647944777}
   isActionPrediction: 0
-  attackImage: {fileID: 7482667652216324306, guid: 5b685c5029b8f5247a9a0d0443c691c5, type: 3}
+  attackImage: {fileID: 21300000, guid: e27beabe69bcfaf4e8bc69cca7f660fd, type: 3}
   defenseImage: {fileID: -2413806693520163455, guid: 7a09254650ec95545af3f8becd2dd54d, type: 3}
   actionList: {fileID: 11400000, guid: 6f88fb74405219a4b90b1670c81e1d54, type: 2}
 --- !u!1 &1982451644934243365
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e27beabe69bcfaf4e8bc69cca7f660fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

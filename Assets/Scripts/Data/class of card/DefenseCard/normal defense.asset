@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardClass: 1
   CardName: Normal Defense
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: db2f994f87f529340b684d562a7cbb97, type: 3}
   Damage: 0
   Denfense: 10
   CardInfo: DP+10
