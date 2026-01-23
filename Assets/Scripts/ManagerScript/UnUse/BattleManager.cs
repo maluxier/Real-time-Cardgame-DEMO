@@ -86,6 +86,7 @@ public class BattleManager : MonoBehaviour
         //float dmg = currentSelectedCard.Card.Damage;
 
         //参数传入MonsterCreat类
+        //
         //target.TakeDamage(dmg);
 
         //检测卡牌携带的buff并触发

@@ -11,6 +11,12 @@ public class Healing : BuffMessage
     public float intervalTime = 1f;//回血间隔时间
 
     public float tickTime;
+
+    public override void Calculate(BuffContext context)
+    {
+
+    }
+
     public override void BuffEffect(GameObject buffTarget)
     {
         Debug.Log("buff生效");
@@ -21,5 +27,5 @@ public class Healing : BuffMessage
             player.currentPlayerHP += healingTick;
             tickTime -= intervalTime;
         }
-    }
+    }   
 }

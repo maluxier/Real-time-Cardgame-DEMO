@@ -15,7 +15,7 @@ public class MonsterActionManager : MonoBehaviour
         else
         {
             instance = this;
-        }       
+        }
     }
 
     public void SkillRun(MonsterSkillMessage skill, GameObject monsterSelf, GameObject playerTarget)

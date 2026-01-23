@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Healing
   m_EditorClassIdentifier: 
   CardClass: 2
+  cardType: 2
   CardName: Healing
   CardImage: {fileID: 21300000, guid: 6211eefb2e7d4e447b5e585a8a63b2d7, type: 3}
-  Damage: 0
   Denfense: 0
   CardInfo: HP+5  ,  3s
   BuffMessages:

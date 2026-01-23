@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5e22764cd72994cbccd77f96636881, type: 3}
   m_Name: NormalAttack
   m_EditorClassIdentifier: 
+  targetType: 1
   isBuffGo: 0
   buffCD: 0
   currentBuffCD: 0
   type: 0
-  lifeType: 0
-  damage: 20
+  lifeType: 1
+  baseDamage: 20
+  finalDamage: 0

@@ -13,7 +13,7 @@ public class CardCreat : MonoBehaviour, IPointerClickHandler
     public Text CardInfo;
 
 
-    
+    public CardType thisCardType;
     public int CardClass;
 
     public CardMessage Card;
@@ -29,12 +29,14 @@ public class CardCreat : MonoBehaviour, IPointerClickHandler
         CardImage.sprite = data.CardImage;
         CardInfo.text = data.CardInfo;
 
-        CardClass = data.CardClass;
+        //thisCardType = data.cardType;
+        //CardClass = data.CardClass;
     }
 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        CardSelectManager.instance.SelectCard(this);
+        //CardSelectManager.instance.SelectCard(this);
+        CardManager.instance.SelectCard(this);
     }
 }

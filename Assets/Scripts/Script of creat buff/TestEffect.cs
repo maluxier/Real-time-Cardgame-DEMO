@@ -9,5 +9,10 @@ public class TestEffect : BuffMessage
     {
         Debug.Log("buff…˙–ß¡À");
     }
+
+    public override void Calculate(BuffContext context)
+    {
+        
+    }
 }
 //1124

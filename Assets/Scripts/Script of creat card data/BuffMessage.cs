@@ -16,15 +16,29 @@ public enum BuffType
     Radical,//激进
     Conservativeness//保守
 }
+
+//buff目标类型
+public enum BuffTargetType
+{
+    Player,
+    Monster,
+    Both
+}
+
 public abstract class BuffMessage : ScriptableObject
 {
+    [Header("buff的目标类型")]
+    public BuffTargetType targetType;
+
     public bool isBuffGo;
 
+    [Header("buff的作用时间")]
     public float buffCD;
     public float currentBuffCD;
 
     public BuffType type;
 
+    [Header("buff的触发类型")]
     public BuffLifeType lifeType;//buff触发类型
     protected bool isTriggered;//用于检查单次buff是否已经触发
 
@@ -32,7 +46,16 @@ public abstract class BuffMessage : ScriptableObject
     //进入buff列表时被调用，初始化buff
     public void Init()
     {
-        currentBuffCD = buffCD;
+        switch (lifeType)
+        {
+            case BuffLifeType.OneShot:
+                break;
+            case BuffLifeType.Duration:
+                currentBuffCD = buffCD;
+                break;
+        }
+
+        //currentBuffCD = buffCD;
         isBuffGo = true;
 
         isTriggered = false;
@@ -85,7 +108,7 @@ public abstract class BuffMessage : ScriptableObject
         return false;
     }
 
-
+    public abstract void Calculate(BuffContext context);
 
     //此处为buff的机制编写处
     public abstract void BuffEffect(GameObject buffTarget);

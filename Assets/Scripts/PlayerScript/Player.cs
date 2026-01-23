@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [Header("生命值")]
     public float maxPlayerHP;
     public float currentPlayerHP;
 
+    [Header("防御值")]
     public float originPlayerDP;
     public float currentPlayerDP;
+
+    [Header("攻击倍率")]
+    public float playerAttackRate;
 
     public SpriteRenderer playerSprite;
 
@@ -47,6 +52,8 @@ public class Player : MonoBehaviour
 
         originPlayerDP = playerMessage.OriginPlayerDP;
         currentPlayerDP = originPlayerDP;
+
+        playerAttackRate = playerMessage.attackRateBonus;
 
         playerSprite.sprite = playerMessage.PlayerSprite;
 
