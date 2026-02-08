@@ -6,11 +6,18 @@ using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
+public enum MonsterClass
+{
+    Normal,
+    Elite,
+    Boss
+}
+
 [CreateAssetMenu(fileName ="New monster", menuName ="Data/New monster")]
 public class MonsterMessage : ScriptableObject
 {
     [Header("怪物种类")]
-    public int MonsterClass;
+    public MonsterClass MonsterClass;
 
     [Header("怪物生命数值")]
     public float MonsterMaxHP;//血量上限

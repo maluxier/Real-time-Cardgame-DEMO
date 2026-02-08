@@ -7,7 +7,7 @@ public class MonsterCreat : MonoBehaviour
 {
     public MonsterMessage monster;
 
-    public int monsterClass;
+    public MonsterClass monsterClass;
 
     public float monsterMaxHP;
     public float monsterCurrentHP;
